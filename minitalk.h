@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanherr <juanherr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:39:45 by juanherr          #+#    #+#             */
-/*   Updated: 2024/10/27 19:51:51 by juanherr         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:52:31 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,5 @@
 # ifndef USAGE
 #  define USAGE "Usage: ./client [server_pid] [message]\n"
 # endif // USAGE
-
-void		send_message(int server_pid, char *message);
-char		*ft_itoa_bin(unsigned int n);
-char		*str_to_bin(const char *str);
-void		*ft_free(void *ptr);
-void		check_memory(void *ptr);
-int			is_byte_complete(int *bit_index);
-void		process_length_byte(char current_byte, size_t *length);
-void		accumulate_bit(int signal, char *current_byte, int *bit_index);
-
-// Server.c
-
-size_t		receive_length(int signal);
-void		receive_message(int signal, char **buffer, size_t message_len);
-void		signal_handler(int signal, siginfo_t *info, void *context);
 
 #endif // MINITALK_H

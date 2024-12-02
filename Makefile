@@ -8,9 +8,8 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 NAME_SERVER = server
 NAME_CLIENT = client
 
-SRCS_CLIENT = client.c utils_bin.c utils.c 
-SRCS_SERVER = server.c  utils_bin.c utils.c
-
+SRCS_CLIENT = client.c
+SRCS_SERVER = server.c
 OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 OBJS_SERVER = $(SRCS_SERVER:.c=.o)
 
