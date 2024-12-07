@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanherr <juanherr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 19:20:17 by gemartin          #+#    #+#             */
-/*   Updated: 2024/10/27 19:59:05 by juanherr         ###   ########.fr       */
+/*   Updated: 2024/12/07 21:25:52 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ size_t	receive_length(int signal)
 	return (0);
 }
 
-void	receive_message(int signal, char **buffer, size_t message_len)
+void	receive_message(int signal, char **buffer, size_t message_len, int *state)
 {
 	static int		bit_index = 0;
 	static size_t	bytes_received = 0;
@@ -60,8 +60,9 @@ void	receive_message(int signal, char **buffer, size_t message_len)
 	if (bytes_received == message_len)
 	{
 		ft_printf("%s\n", *buffer);
-		ft_free(*buffer);
+		*buffer = ft_free(*buffer);
 		bytes_received = 0;
+		*state = 0; // Reset state after message is processed
 	}
 }
 
@@ -87,9 +88,7 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 	}
 	else if (state == 1)
 	{
-		receive_message(signal, &buffer, length);
-		if (buffer == NULL)
-			state = 0;
+		receive_message(signal, &buffer, length, &state);
 	}
 }
 

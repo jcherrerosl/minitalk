@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanherr <juanherr@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:39:45 by juanherr          #+#    #+#             */
-/*   Updated: 2024/10/27 19:51:51 by juanherr         ###   ########.fr       */
+/*   Updated: 2024/12/07 21:24:18 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		accumulate_bit(int signal, char *current_byte, int *bit_index);
 // Server.c
 
 size_t		receive_length(int signal);
-void		receive_message(int signal, char **buffer, size_t message_len);
+void		receive_message(int signal, char **buffer, size_t message_len, int *state);
 void		signal_handler(int signal, siginfo_t *info, void *context);
 
 #endif // MINITALK_H
