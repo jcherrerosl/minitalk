@@ -6,7 +6,7 @@
 /*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 19:20:17 by gemartin          #+#    #+#             */
-/*   Updated: 2024/12/07 21:25:52 by juaherre         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:10:39 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ size_t	receive_length(int signal)
 	return (0);
 }
 
-void	receive_message(int signal, char **buffer, size_t message_len, int *state)
+void	receive_message(int signal, char **buffer, size_t message_len,
+		int *state)
 {
 	static int		bit_index = 0;
 	static size_t	bytes_received = 0;
@@ -62,7 +63,7 @@ void	receive_message(int signal, char **buffer, size_t message_len, int *state)
 		ft_printf("%s\n", *buffer);
 		*buffer = ft_free(*buffer);
 		bytes_received = 0;
-		*state = 0; // Reset state after message is processed
+		*state = 0;
 	}
 }
 
@@ -71,9 +72,7 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 	static size_t	length = 0;
 	static int		state = 0;
 	static char		*buffer = NULL;
-	
 
-	(void)info;
 	(void)context;
 	if (state == 0)
 	{
@@ -89,12 +88,17 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 	else if (state == 1)
 	{
 		receive_message(signal, &buffer, length, &state);
+		if (state == 0)
+		{
+			if (kill(info->si_pid, SIGUSR1) == -1)
+				ft_printerror("Failed to send acknowledgment to client");
+		}
 	}
 }
 
 int	main(void)
 {
-	struct sigaction sa;
+	struct sigaction	sa;
 
 	sa.sa_sigaction = signal_handler;
 	sa.sa_flags = SA_SIGINFO;
@@ -104,5 +108,6 @@ int	main(void)
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
+	sigaction(SIGUSR2, &sa, NULL);
 	return (0);
 }
