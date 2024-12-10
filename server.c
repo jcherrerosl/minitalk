@@ -6,7 +6,7 @@
 /*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 19:20:17 by gemartin          #+#    #+#             */
-/*   Updated: 2024/12/10 12:16:56 by juaherre         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:58:01 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	receive_length(int signal)
 		if (current_byte == '\n')
 		{
 			result = length;
-			ft_printf("Longitud recibida: %u\n", result);
+			ft_printf("Message length: %u\n", result);
 			length = 0;
 			current_byte = 0;
 			return (result);
