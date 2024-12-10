@@ -6,7 +6,7 @@
 /*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 19:20:17 by gemartin          #+#    #+#             */
-/*   Updated: 2024/12/07 22:10:39 by juaherre         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:16:56 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,5 @@ int	main(void)
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
-	sigaction(SIGUSR2, &sa, NULL);
 	return (0);
 }

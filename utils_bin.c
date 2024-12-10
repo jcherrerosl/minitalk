@@ -6,7 +6,7 @@
 /*   By: juaherre <juaherre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:22:33 by juanherr          #+#    #+#             */
-/*   Updated: 2024/12/08 09:10:59 by juaherre         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:20:23 by juaherre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*str_to_bin(const char *str)
 
 	if (!str)
 		return (NULL);
-	binary = (char *)ft_calloc(8 * ft_strlen(str) + 1, sizeof(char));
+	binary = (char *)malloc(8 * ft_strlen(str) + 1);
 	check_memory(binary);
 	i = 0;
 	j = 0;
