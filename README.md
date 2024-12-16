@@ -14,7 +14,7 @@ La complejidad de la aplicación radica en que únicamente se utilizan las seña
 
 Para enviar un mensaje, primero se convierte el texto a su representación binaria. Cada carácter del mensaje se transforma en una secuencia de bits, que luego se envían como señales al servidor. El servidor recibe estas señales, las decodifica de vuelta a su representación binaria y finalmente reconstruye el mensaje original.
 
-Por ejemplo, la letra 'A' se convierte en `01000001` en binario. Para enviar 'A', el cliente enviará una secuencia de señales: SIGUSR1, SIGUSR0, SIGUSR0, SIGUSR0, SIGUSR0, SIGUSR0, SIGUSR1, SIGUSR1.
+Por ejemplo, la letra 'A' se convierte en `01000001` en binario. Para enviar 'A', el cliente enviará una secuencia de señales: SIGUSR2, SIGUSR1, SIGUSR2, SIGUSR2, SIGUSR2, SIGUSR2, SIGUSR2, SIGUSR1.
 
 ## Instalación
 
