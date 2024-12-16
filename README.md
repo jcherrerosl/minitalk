@@ -8,7 +8,7 @@ Minitalk es una pequeña aplicación que permite enviar mensajes de texto desde 
 
 ## Detalles del programa
 
-La complejidad de la aplicación radica en que únicamente se utilizan las señales SIGUSR1 y SIGUSR2. Estas señales están abiertas para que el usuario asigne significados específicos a cada una. En nuestro caso, hemos decidido utilizar SIGUSR1 para representar el bit 0 y SIGUSR2 para representar el bit 1. 
+La complejidad de la aplicación radica en que únicamente se utilizan las señales SIGUSR1 y SIGUSR2. Estas señales están abiertas para que el usuario asigne significados específicos a cada una. En nuestro caso, hemos decidido utilizar SIGUSR1 para representar el bit 1 y SIGUSR2 para representar el bit 2. 
 
 ### Conversión y Decodificación de Mensajes
 
